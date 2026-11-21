@@ -1,0 +1,134 @@
+/* Aparencia baseada nos cinco prototipos criados no Figma. */
+:root {
+    --verde: #285C4B;
+    --fundo: #E1E9E3;
+    --verde-claro: #DCE9E1;
+    --campo: #F0F4F1;
+    --borda: #9CB5A6;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--fundo);
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #333333;
+}
+.barra-superior {
+    height: 100px;
+    background: var(--verde);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 55px;
+    gap: 20px;
+}
+.marca {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.marca:hover { color: white; }
+.menu { display: flex; align-items: center; gap: 16px; }
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px 13px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.menu a:hover, .menu a.ativo {
+    color: var(--verde);
+    background: var(--verde-claro);
+}
+.conteudo { padding: 44px 55px 65px; min-height: calc(100vh - 100px); }
+h1 { font-size: 28px; font-weight: 600; color: var(--verde); margin: 0 0 30px; }
+h2 { font-size: 20px; font-weight: 600; color: var(--verde); margin: 0 0 24px; }
+.caixa {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 30px;
+}
+.caixa-formulario { min-height: 370px; }
+.caixa-listagem { min-height: 235px; }
+.grade { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; row-gap: 18px; }
+.campo { min-width: 0; }
+.campo-inteiro { grid-column: 1 / -1; }
+.campo label { display: block; margin: 0 0 7px; font-size: 15px; font-weight: 500; }
+.campo .form-control, .campo .form-select {
+    height: 55px;
+    border: 1px solid var(--borda);
+    background-color: var(--campo);
+    border-radius: 6px;
+    color: #333333;
+    font-size: 15px;
+}
+.campo .form-control:focus, .campo .form-select:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 2px rgba(40, 92, 75, 0.12);
+}
+.campo .form-control::placeholder { color: #6d7f73; }
+.linha-botao { display: flex; justify-content: flex-end; margin-top: 24px; }
+.btn-verde {
+    background: var(--verde);
+    border: 1px solid var(--verde);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 11px 23px;
+}
+.btn-verde:hover, .btn-verde:focus { background: #1f493b; border-color: #1f493b; color: white; }
+.btn-contorno {
+    border: 1px solid var(--verde);
+    background: white;
+    border-radius: 6px;
+    color: var(--verde);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 7px 18px;
+    text-decoration: none;
+}
+.btn-contorno:hover { background: var(--verde-claro); color: var(--verde); }
+.tabela-fretes, .tabela-cadastro { width: 100%; border-collapse: collapse; }
+.tabela-fretes th, .tabela-cadastro th {
+    background: var(--verde-claro);
+    color: var(--verde);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 11px 13px;
+}
+.tabela-fretes td, .tabela-cadastro td { padding: 14px 13px; font-size: 15px; vertical-align: middle; }
+.tabela-cadastro th:first-child, .tabela-fretes th:first-child { border-radius: 4px 0 0 4px; }
+.tabela-cadastro th:last-child, .tabela-fretes th:last-child { border-radius: 0 4px 4px 0; }
+.mensagem { margin: 0 0 18px; }
+.grade-endereco { display: grid; grid-template-columns: 180px 380px 1fr 190px; gap: 18px 20px; }
+.grade-endereco .metade { grid-column: span 2; }
+.grade-transportador { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px; }
+.grade-transportador .linha { grid-column: span 2; }
+.grade-transportador .linha-dupla { display: grid; grid-template-columns: 230px 1fr; gap: 40px; }
+.area-botao-frete { display: flex; justify-content: flex-end; }
+.area-itens { margin-top: 5px; }
+.tabela-fretes td { border-bottom: 1px solid #edf1ee; }
+.tabela-fretes tbody tr:last-child td { border-bottom: 0; }
+.filtro-relatorio { min-height: 190px; }
+.filtro-linha { display: flex; align-items: end; flex-wrap: wrap; gap: 20px; }
+.filtro-linha .campo { width: 410px; max-width: 100%; }
+.lista-relatorios { min-height: 400px; }
+.rodape-relatorio { display: flex; justify-content: flex-end; margin-top: 80px; }
+@media (max-width: 950px) {
+    .barra-superior { height: auto; min-height: 100px; flex-wrap: wrap; padding: 20px; }
+    .menu { flex-wrap: wrap; gap: 6px; }
+    .conteudo { padding: 30px 20px; }
+    .grade, .grade-transportador, .grade-endereco { grid-template-columns: 1fr; }
+    .grade-endereco .metade, .grade-transportador .linha { grid-column: auto; }
+    .grade-transportador .linha-dupla { grid-template-columns: 1fr; }
+    .campo-inteiro { grid-column: auto; }
+    .caixa { padding: 20px; min-height: 0; }
+    .tabela-responsiva { overflow-x: auto; }
+    table { min-width: 650px; }
+}
