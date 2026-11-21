@@ -55,17 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $transportadores = $conexao->query('SELECT id, nome FROM transportadores ORDER BY nome');
-$enderecos = $conexao->query('SELECT id, identificacao, cidade FROM enderecos ORDER BY identificacao');
+$enderecos = $conexao->query('SELECT id, identificacao, cidade FROM enderecos ORDER BY identificacao')->fetch_all(MYSQLI_ASSOC);
 $produtos_disponiveis = $conexao->query('SELECT id, nome, peso FROM produtos ORDER BY nome');
 
 $pagina_ativa = 'fretes';
 $titulo_pagina = 'Fretes';
 require 'includes/cabecalho.php';
 ?>
+<form id="form-frete" method="post" action="fretes.php">
 <section class="caixa">
     <h2>Cadastro de Fretes</h2>
     <?php if ($erro): ?><div class="alert alert-danger mensagem"><?php echo texto($erro); ?></div><?php endif; ?>
-    <form id="form-frete" method="post" action="fretes.php">
         <div class="grade">
             <div class="campo">
                 <label for="data_frete">Data do Frete</label>
@@ -115,6 +115,8 @@ require 'includes/cabecalho.php';
                 </div>
             </div>
         </div>
+</section>
+<section class="caixa caixa-listagem">
         <div class="caixa-itens">
             <div class="tabela-responsiva">
                 <table class="tabela-fretes">
@@ -129,7 +131,7 @@ require 'includes/cabecalho.php';
                 <button type="submit" class="btn btn-verde">Salvar Frete</button>
             </div>
         </div>
-    </form>
 </section>
+</form>
 <script src="assets/fretes.js"></script>
 <?php require 'includes/rodape.php'; ?>

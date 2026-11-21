@@ -47,14 +47,4 @@ CREATE TABLE IF NOT EXISTS frete_produtos (
     FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
 
--- Dados ficticios apenas para facilitar a demonstracao da APO.
-INSERT INTO produtos (nome, peso, descricao) VALUES
-('Caixa de livros', 2.50, 'Livros para Transporte'),
-('Monitor', 5.00, 'Monitor de computador');
-
-INSERT INTO enderecos (identificacao, logradouro, numero, bairro, cidade, uf) VALUES
-('Depósito Central', 'Avenida Iguaçu', '927', 'Centro', 'Nova Prata do Iguaçu', 'PR'),
-('Cliente Oeste', 'Rua das Flores', '150', 'Centro', 'Dois Vizinhos', 'PR');
-
-INSERT INTO transportadores (nome, documento, telefone, veiculo) VALUES
-('Transportes 123', '99.999.999/0001-99', '(99) 99999-9999', 'Volvo FH 540');
+-- As tabelas iniciam vazias. Os cadastros sao feitos pelo usuario no sistema.
